@@ -50,6 +50,7 @@ import {
   INITIAL_KNOWLEDGE_GRAPH_LINKS, 
   INITIAL_AUTO_EVOLUTION_TRIGGERS 
 } from '../data/communityKnowledge';
+import { CommunityKnowledgeFeed } from './CommunityKnowledgeFeed';
 
 export const CommunityKnowledgeNetwork: React.FC = () => {
   const [activeSubTab, setActiveSubTab] = useState<'feed' | 'cards' | 'forks' | 'graph' | 'evolution' | 'reputation'>('feed');
@@ -351,7 +352,19 @@ export const CommunityKnowledgeNetwork: React.FC = () => {
             }`}
           >
             <Activity className="h-3.5 w-3.5 text-emerald-400" />
-            <span>Community Feed & Cards</span>
+            <span>Live Knowledge Feed</span>
+          </button>
+
+          <button
+            onClick={() => setActiveSubTab('cards')}
+            className={`flex items-center gap-2 rounded-xl px-3.5 py-2 text-xs font-mono font-bold transition-all shadow-sm ${
+              activeSubTab === 'cards'
+                ? 'bg-emerald-600 text-white shadow-emerald-500/20'
+                : 'bg-neutral-900 text-neutral-400 border border-neutral-800 hover:text-white hover:border-neutral-700'
+            }`}
+          >
+            <FileText className="h-3.5 w-3.5 text-teal-400" />
+            <span>Knowledge Cards ({cards.length})</span>
           </button>
 
           <button
@@ -412,8 +425,13 @@ export const CommunityKnowledgeNetwork: React.FC = () => {
         </button>
       </div>
 
-      {/* TAB 1: COMMUNITY FEED & KNOWLEDGE CARDS */}
+      {/* TAB 1: COMMUNITY KNOWLEDGE FEED */}
       {activeSubTab === 'feed' && (
+        <CommunityKnowledgeFeed />
+      )}
+
+      {/* TAB 2: SEARCHABLE KNOWLEDGE CARDS */}
+      {activeSubTab === 'cards' && (
         <div className="space-y-6">
           {/* Latest Network Activity Banner */}
           <div className="rounded-3xl border border-neutral-800 bg-neutral-900/90 p-5 sm:p-6 shadow-xl space-y-4">
