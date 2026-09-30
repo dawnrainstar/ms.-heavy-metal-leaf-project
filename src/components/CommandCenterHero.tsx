@@ -32,9 +32,9 @@ export const CommandCenterHero: React.FC<CommandCenterHeroProps> = ({ onNavigate
             MS. HEAVY METAL LEAF
           </span>
           <span className="text-neutral-500">•</span>
-          <span className="text-neutral-300 font-medium">Open Research Platform for Living Technologies</span>
+          <span className="text-neutral-300 font-medium">Ecological Intelligence Platform</span>
           <span className="text-neutral-500">•</span>
-          <span className="text-amber-400 font-mono">Adaptive Ecological Intelligence</span>
+          <span className="text-amber-400 font-mono">Adaptive AI Operating System</span>
         </div>
 
         {/* Hero Title & Identity Statement */}
@@ -43,11 +43,10 @@ export const CommandCenterHero: React.FC<CommandCenterHeroProps> = ({ onNavigate
             MS. HEAVY METAL LEAF
           </h1>
           <p className="text-base sm:text-lg font-mono text-emerald-400 font-semibold tracking-wide">
-            Phytoremediation • Hyperaccumulators • Phytomining • Bioelectronics • Ecological Robotics
+            Ecological Intelligence Platform
           </p>
           <p className="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-3xl">
-            A Living AI and Open-Science Architecture designed to transform toxic landscapes into regenerative infrastructure. 
-            Bridging <span className="text-white font-medium">Earth</span>, <span className="text-white font-medium">Biology</span>, <span className="text-white font-medium">Technology</span>, <span className="text-white font-medium">Intelligence</span>, and <span className="text-white font-medium">Regeneration</span>.
+            An AI-powered research and development platform focused on phytoremediation, phytomining, bioelectronics, environmental sensing, regenerative infrastructure, resource recovery, and emerging ecological technologies.
           </p>
         </div>
 

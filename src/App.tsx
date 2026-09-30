@@ -124,7 +124,7 @@ export default function App() {
 
         {/* TAB 6: PROJECT VISION & MYTHIC INTERFACE */}
         {activeTab === 'project-vision' && (
-          <ProjectVisionTab />
+          <ProjectVisionTab onNavigateTab={setActiveTab} />
         )}
 
         {/* COLLABORATOR OUTREACH & INVITE STUDIO */}

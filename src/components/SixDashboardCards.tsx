@@ -1,33 +1,35 @@
 import React from 'react';
 import { 
+  Leaf, 
+  Coins, 
+  Zap, 
   Bot, 
-  BookOpen, 
-  Layers, 
   Globe2, 
-  Cpu, 
-  Sparkles, 
+  Layers, 
   ArrowRight,
   ShieldCheck,
-  Zap,
-  Activity,
-  Coins,
+  CheckCircle2,
+  Sparkles,
   Compass
 } from 'lucide-react';
 import { EpistemicStatus } from '../types';
 
 interface DashboardCardItem {
   id: string;
+  domainNumber: string;
   title: string;
   subtitle: string;
   tag: string;
   description: string;
-  bullets: string[];
+  researchAreas: string[];
   icon: any;
   epistemicStatus: EpistemicStatus;
   epistemicLabel: string;
   targetTab: string;
+  targetLabel: string;
   borderColor: string;
   glowColor: string;
+  textColor: string;
 }
 
 interface SixDashboardCardsProps {
@@ -37,184 +39,237 @@ interface SixDashboardCardsProps {
 export const SixDashboardCards: React.FC<SixDashboardCardsProps> = ({ onNavigateTab }) => {
   const cards: DashboardCardItem[] = [
     {
-      id: 'ai-assistant',
-      title: 'AI Research Assistant',
-      subtitle: 'Ms. Heavy Metal Leaf Knowledge Engine',
-      tag: 'Adaptive Ecological AI',
-      description: 'Interact directly with the platform intelligence across Research, Engineering, and Data modes to evaluate plant electrophysiology, verify protocols, or model ionic transport.',
-      bullets: [
-        'Research Mode: Phytoremediation & hyperaccumulation analysis',
-        'Engineering Mode: Guided-growth molds & sensor integration',
-        'Data Mode: Environmental datasets & soil reduction analytics'
+      id: 'phytoremediation',
+      domainNumber: '01',
+      title: 'Phytoremediation',
+      subtitle: 'Contaminant Removal & Soil Stabilization',
+      tag: 'Verified Metallophytes',
+      description: 'Using specialized hyperaccumulator plants to biologically extract, stabilize, or transform heavy metals and industrial contaminants from polluted soils and mine tailings.',
+      researchAreas: [
+        'Heavy metal removal (Ni, Zn, Cd, Cu, Pb)',
+        'Brownfield restoration & soil stabilization',
+        'Mine tailing remediation kinetics',
+        'Rhizosphere soil regeneration & pH dynamics',
+        'Water quality improvement & runoff bio-filtration'
+      ],
+      icon: Leaf,
+      epistemicStatus: 'PROVEN_FACT',
+      epistemicLabel: '🟢 VERIFIED SCIENCE',
+      targetTab: 'verified-science',
+      targetLabel: 'Verified Science Archive',
+      borderColor: 'border-emerald-500/50 hover:border-emerald-400',
+      glowColor: 'from-emerald-950/30',
+      textColor: 'text-emerald-400'
+    },
+    {
+      id: 'phytomining',
+      domainNumber: '02',
+      title: 'Phytomining',
+      subtitle: 'Bio-Ore Harvesting & Resource Recovery',
+      tag: 'Circular Resource Recovery',
+      description: 'Using hyperaccumulator crops to harvest economic-grade critical metals from contaminated or low-grade soils, producing battery precursors without smelting emissions.',
+      researchAreas: [
+        'Nickel recovery (>20% Ni in dry biomass ash)',
+        'Zinc recovery (Noccaea caerulescens up to 39,000 ppm)',
+        'Copper recovery & tailings leachates',
+        'Rare metal recovery (Cobalt, Cadmium, Arsenic)',
+        'Circular battery-grade precursor synthesis'
+      ],
+      icon: Coins,
+      epistemicStatus: 'PROVEN_FACT',
+      epistemicLabel: '🟢 FIELD VERIFIED',
+      targetTab: 'field-sites',
+      targetLabel: 'Field Sites & Phytomining',
+      borderColor: 'border-amber-500/50 hover:border-amber-400',
+      glowColor: 'from-amber-950/20',
+      textColor: 'text-amber-400'
+    },
+    {
+      id: 'bioelectronics',
+      domainNumber: '03',
+      title: 'Bioelectronics',
+      subtitle: 'Plant Electrophysiology & Passive Interfaces',
+      tag: '1 TΩ Non-Invasive Sensing',
+      description: 'Understanding plant electrical action potentials and engineering non-invasive, ultra-high impedance interfaces between living botanical tissues and digital hardware.',
+      researchAreas: [
+        'Plant electrophysiology & action potentials',
+        'Environmental stress sensing (drought, cations)',
+        'Non-invasive electrodes & zero-incision PDMS molds',
+        'Biological signal classification & noise filtering',
+        'Low-power sensor systems (<2 nA passive draw)'
+      ],
+      icon: Zap,
+      epistemicStatus: 'ACTIVE_TEST',
+      epistemicLabel: '🟡 ACTIVE EXPERIMENTS',
+      targetTab: 'active-experiments',
+      targetLabel: 'Bioelectronics Lab',
+      borderColor: 'border-amber-500/50 hover:border-amber-400',
+      glowColor: 'from-amber-950/20',
+      textColor: 'text-amber-400'
+    },
+    {
+      id: 'environmental-intelligence',
+      domainNumber: '04',
+      title: 'Environmental Intelligence',
+      subtitle: 'Living Monitoring Networks & Ecological AI',
+      tag: 'Adaptive AI Engine',
+      description: 'Transforming natural ecosystems into distributed living monitoring networks integrated with edge AI, sensor fusion, and biophysical predictive digital twins.',
+      researchAreas: [
+        'Subterranean soil sensing & rhizosphere metrics',
+        'Water quality tracking & aquatic ion kinetics',
+        'Air quality tracking & particulate deposition',
+        'Ecological analytics & time-series uptake models',
+        'AI environmental models & biophysical reasoning'
       ],
       icon: Bot,
       epistemicStatus: 'PROVEN_FACT',
       epistemicLabel: '🟢 CORE INTELLIGENCE',
       targetTab: 'ai-assistant',
-      borderColor: 'border-emerald-500/50 hover:border-emerald-400',
-      glowColor: 'from-emerald-950/30'
+      targetLabel: 'AI Co-Scientist Console',
+      borderColor: 'border-teal-500/50 hover:border-teal-400',
+      glowColor: 'from-teal-950/30',
+      textColor: 'text-teal-400'
     },
     {
-      id: 'verified-science',
-      title: 'Verified Science',
-      subtitle: 'Peer-Reviewed Botanical Archive',
-      tag: 'Documented Science',
-      description: 'Peer-reviewed metallophyte research, documented hyperaccumulation taxa, molecular transporters (HMA4, MTP1), vacuolar chelation, and published academic papers.',
-      bullets: [
-        'Pycnandra acuminata: 25.7% Ni blue latex (Science, 1976)',
-        'Noccaea caerulescens: 3.9% Zn & Cd hyperaccumulation',
-        'Berkheya coddii: High-biomass nickel phytomining (18-22 t/ha)'
+      id: 'regenerative-infrastructure',
+      domainNumber: '05',
+      title: 'Regenerative Infrastructure',
+      subtitle: 'Deployable Systems Improving Ambient Ecology',
+      tag: 'Ecosystem Engineering',
+      description: 'Designing systems that actively heal environmental conditions: floating treatment wetlands, living barriers, urban restoration corridors, and carbon-sequestering landscapes.',
+      researchAreas: [
+        'Floating treatment wetlands for toxic ponds',
+        'Urban restoration systems & bio-swales',
+        'Living barriers for particulate capture',
+        'Carbon capture landscapes with dense root mats',
+        'Ecological construction & vegetative support'
       ],
-      icon: BookOpen,
-      epistemicStatus: 'PROVEN_FACT',
-      epistemicLabel: '🟢 VERIFIED SCIENCE',
-      targetTab: 'verified-science',
-      borderColor: 'border-emerald-500/50 hover:border-emerald-400',
-      glowColor: 'from-emerald-950/20'
+      icon: Globe2,
+      epistemicStatus: 'ACTIVE_TEST',
+      epistemicLabel: '🟡 FIELD DEPLOYMENT',
+      targetTab: 'field-sites',
+      targetLabel: 'Field Restoration Sites',
+      borderColor: 'border-teal-500/50 hover:border-teal-400',
+      glowColor: 'from-teal-950/20',
+      textColor: 'text-teal-400'
     },
     {
-      id: 'active-experiments',
-      title: 'Active Experiments',
-      subtitle: 'Guided-Growth & In-Growth Laboratory',
-      tag: 'Bench Trials & Faraday Cage',
-      description: 'Zero-incision bio-molding: pre-casting gold electrodes into PDMS molds with 1 TΩ passive sensing and grounded Faraday mesh cages to eliminate ambient electrical fields.',
-      bullets: [
-        'Zero surgical incisions: Pectin-sealed contact impedance 4.8 kΩ',
-        '1 TΩ passive sensing (<2 nA) & Grounded Faraday cage (0.00 V/m)',
-        'Cleanroom Protocol SOP-01: Plasma degassing & auxin pacing'
+      id: 'living-materials',
+      domainNumber: '06',
+      title: 'Living Materials',
+      subtitle: 'Biological Alternatives to Conventional Manufacturing',
+      tag: 'Emerging Biomaterials',
+      description: 'Exploring grown biological materials, mycelium composites, biochar matrices, and biomineralized tissues as regenerative alternatives to petrochemicals and extractive metallurgy.',
+      researchAreas: [
+        'Plant fiber composites & structural polymers',
+        'Mycelium composites for acoustic & thermal insulation',
+        'Biomineralization & in-situ conductive pathways',
+        'Biochar materials for permanent carbon storage',
+        'Self-healing living construction composites'
       ],
       icon: Layers,
-      epistemicStatus: 'ACTIVE_TEST',
-      epistemicLabel: '🟡 ACTIVE EXPERIMENTS',
-      targetTab: 'active-experiments',
-      borderColor: 'border-amber-500/50 hover:border-amber-400',
-      glowColor: 'from-amber-950/20'
-    },
-    {
-      id: 'emerging-pipeline',
-      title: 'Emerging Tech Pipeline',
-      subtitle: 'Technologies Under Evaluation',
-      tag: 'Plausibility Evaluation',
-      description: 'Evaluating scientifically plausible candidate technologies that bridge active laboratory experiments and wild future visions. Not yet validated on our core platform bench.',
-      bullets: [
-        'Plant neural network mapping & systemic action potential decoding',
-        'Root-grown conductive metallic micro-wires via redox precipitation',
-        'Mycelial-plant logic systems & living environmental memory'
-      ],
-      icon: Compass,
       epistemicStatus: 'EMERGING_TECH',
       epistemicLabel: '🔷 EMERGING PIPELINE',
       targetTab: 'emerging-tech',
+      targetLabel: 'Emerging Tech Pipeline',
       borderColor: 'border-blue-500/50 hover:border-blue-400',
-      glowColor: 'from-blue-950/30'
-    },
-    {
-      id: 'field-restoration',
-      title: 'Field Restoration',
-      subtitle: 'Mine Tailings & Toxic Land Recovery',
-      tag: 'Ecological Projects',
-      description: 'Phytoremediation kinetic simulators for legacy industrial brownfields, smelter tailings, and Superfund sites, calculating soil toxic reduction and battery-grade bio-ore yields.',
-      bullets: [
-        'Sudbury Smelter Tailings (Ni) & Katanga Copper-Cobalt Belt',
-        'Avoided excavation carbon: saves ~85 kg CO2 per ton of soil',
-        'Recoverable high-purity battery cathode precursors (>99.2% NiSO4)'
-      ],
-      icon: Globe2,
-      epistemicStatus: 'PROVEN_FACT',
-      epistemicLabel: '🟢 FIELD VERIFIED',
-      targetTab: 'field-sites',
-      borderColor: 'border-teal-500/50 hover:border-teal-400',
-      glowColor: 'from-teal-950/20'
-    },
-    {
-      id: 'future-concepts',
-      title: 'Future Concepts',
-      subtitle: 'Speculative Systems & Living Robotics',
-      tag: 'Theoretical Designs',
-      description: 'Exploratory biophysical modeling: engineered dual-compartment 80% dry-weight metal percolation matrices, plant-machine symbiosis, grown cybernetic bio-bots, and living infrastructure.',
-      bullets: [
-        'Dual-Compartment Partitioning: 25% symplastic core + 55% apoplast',
-        'Kirkpatrick continuum electrical percolation threshold (~16% vol)',
-        'Autonomous biohybrid landscape restoration networks'
-      ],
-      icon: Sparkles,
-      epistemicStatus: 'THEORETICAL',
-      epistemicLabel: '🟣 FUTURE CONCEPTS',
-      targetTab: 'future-concepts',
-      borderColor: 'border-purple-500/50 hover:border-purple-400',
-      glowColor: 'from-purple-950/20'
+      glowColor: 'from-blue-950/30',
+      textColor: 'text-blue-400'
     }
   ];
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
+      {/* Section Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-800 pb-3">
         <div>
-          <h3 className="text-lg font-bold text-white font-mono flex items-center gap-2">
-            <span>Primary Research Workspaces</span>
-            <span className="rounded-full bg-neutral-800 px-2 py-0.5 text-xs text-neutral-400">
-              6 Modules
-            </span>
-          </h3>
-          <p className="text-xs text-neutral-400">
-            Categorized research disciplines powering Ms. Heavy Metal Leaf.
-          </p>
+          <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider block">
+            Core Architecture
+          </span>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-white font-mono flex items-center gap-2">
+            <span>6 Core Research Domains</span>
+          </h2>
         </div>
+        <span className="text-xs font-mono text-neutral-400">
+          Integrated scientific programs bridging biology, technology, and materials
+        </span>
       </div>
 
+      {/* Grid of 6 Domain Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {cards.map((card) => {
           const Icon = card.icon;
           return (
             <div
               key={card.id}
-              onClick={() => onNavigateTab(card.targetTab)}
-              className={`group cursor-pointer rounded-2xl border ${card.borderColor} bg-gradient-to-br ${card.glowColor} via-neutral-900 to-neutral-950 p-5 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col justify-between`}
+              className={`group relative overflow-hidden rounded-3xl border bg-gradient-to-br from-neutral-900/90 via-neutral-950 to-neutral-900/60 p-6 shadow-xl transition-all duration-300 hover:shadow-2xl flex flex-col justify-between ${card.borderColor}`}
             >
-              <div className="space-y-3">
+              {/* Top ambient hover glow */}
+              <div className={`absolute -right-8 -top-8 h-36 w-36 rounded-full bg-gradient-to-br ${card.glowColor} to-transparent blur-2xl opacity-60 group-hover:opacity-100 transition-opacity pointer-events-none`} />
+
+              <div className="relative z-10 space-y-4">
+                {/* Header: Domain Number, Epistemic Badge & Icon */}
                 <div className="flex items-center justify-between">
-                  <div className="p-2.5 rounded-xl bg-neutral-900/90 border border-neutral-800 text-emerald-400 group-hover:scale-110 transition-transform">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-mono font-extrabold text-neutral-500">
+                      {card.domainNumber}
+                    </span>
+                    <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-mono font-bold ${
+                      card.epistemicStatus === 'PROVEN_FACT'
+                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                        : card.epistemicStatus === 'ACTIVE_TEST'
+                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                        : 'bg-blue-500/20 text-blue-300 border border-blue-500/40'
+                    }`}>
+                      {card.epistemicLabel}
+                    </span>
+                  </div>
+
+                  <div className={`rounded-xl bg-neutral-900/90 p-2.5 ${card.textColor} group-hover:scale-110 transition-transform shadow-inner`}>
                     <Icon className="h-5 w-5" />
                   </div>
-                  <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-mono font-bold ${
-                    card.epistemicStatus === 'PROVEN_FACT'
-                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
-                      : card.epistemicStatus === 'ACTIVE_TEST'
-                      ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                      : card.epistemicStatus === 'EMERGING_TECH'
-                      ? 'bg-blue-500/20 text-blue-300 border border-blue-500/40'
-                      : 'bg-purple-500/20 text-purple-300 border border-purple-500/40'
-                  }`}>
-                    {card.epistemicLabel}
-                  </span>
                 </div>
 
+                {/* Title & Subtitle */}
                 <div>
-                  <h4 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors">
+                  <h3 className="text-lg font-bold text-white font-mono group-hover:text-emerald-300 transition-colors">
                     {card.title}
-                  </h4>
-                  <span className="text-xs text-neutral-400 font-mono block mt-0.5">
+                  </h3>
+                  <p className="text-xs font-mono text-neutral-400 mt-0.5">
                     {card.subtitle}
-                  </span>
+                  </p>
                 </div>
 
+                {/* Description */}
                 <p className="text-xs text-neutral-300 leading-relaxed">
                   {card.description}
                 </p>
 
-                <div className="space-y-1 pt-1 border-t border-neutral-800/80">
-                  {card.bullets.map((bullet, idx) => (
-                    <div key={idx} className="flex items-start gap-1.5 text-[11px] text-neutral-400">
-                      <span className="text-emerald-500 font-bold">•</span>
-                      <span className="leading-snug">{bullet}</span>
-                    </div>
-                  ))}
+                {/* Research Areas Bullet Points */}
+                <div className="rounded-xl border border-neutral-850 bg-neutral-950/60 p-3.5 space-y-1.5">
+                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-neutral-400">
+                    Core Research Areas:
+                  </div>
+                  <ul className="space-y-1 text-[11px] font-mono text-neutral-300">
+                    {card.researchAreas.map((area, idx) => (
+                      <li key={idx} className="flex items-start gap-1.5">
+                        <span className="text-emerald-400 text-xs leading-none mt-0.5">•</span>
+                        <span className="leading-snug">{area}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-neutral-800/60 flex items-center justify-between text-xs font-mono text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">
-                <span>Explore Module</span>
-                <ArrowRight className="h-4 w-4" />
+              {/* Action Button */}
+              <div className="pt-4 relative z-10">
+                <button
+                  onClick={() => onNavigateTab(card.targetTab)}
+                  className="flex items-center justify-between w-full rounded-xl border border-neutral-800 bg-neutral-900/80 px-4 py-2.5 text-xs font-mono font-bold text-white hover:border-emerald-500 hover:bg-emerald-950/40 hover:text-emerald-300 transition-all shadow-sm group/btn"
+                >
+                  <span>Explore {card.targetLabel}</span>
+                  <ArrowRight className="h-3.5 w-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                </button>
               </div>
             </div>
           );

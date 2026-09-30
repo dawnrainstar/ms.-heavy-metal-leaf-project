@@ -41,6 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'future-concepts', label: 'Future Concepts', icon: Atom, badge: '80% Matrix' },
     { id: 'field-sites', label: 'Field Sites', icon: Globe2, badge: 'Phytoremediation' },
     { id: 'project-vision', label: 'Project Vision', icon: Sparkles, badge: 'Living Platform' },
+    { id: 'outreach', label: 'Research Network', icon: Users, badge: 'Collaborate' },
   ];
 
   return (
