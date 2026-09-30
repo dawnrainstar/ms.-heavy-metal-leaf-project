@@ -1,0 +1,6 @@
+{
+  "name": "Ms. Heavy Metal Leaf - Cyborg Hyperaccumulator Bio-Bot Research Hub",
+  "description": "Open-science research lab and collaboration workspace for Ms. Heavy Metal Leaf: a zero-installation cyborg hyperaccumulator bio-bot grown inside sensor molds to remediate toxic soil, demonstrate grown robotics, and achieve up to 80% living metal density.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
